@@ -1,0 +1,8 @@
+# Python Folders
+__pycache__/
+.venv/
+
+# Model Folders
+paraphrase-multilingual-MiniLM-L12-v2/
+t5_paraphraser/
+

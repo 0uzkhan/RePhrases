@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RePhrase</title>
+</head>
+<body>
+    <h1>RePhrase</h1>
+    <form action="output" method="POST">
+        <div title="Enter the paragraph you want to paraphrase.">
+            <label for="input">Paragraph to paraphrase:</label><br>
+            <textarea id="input" name="input" rows="4" cols="50"></textarea><br><br>
+        </div>
+
+        <div title="Enter the number of paraphrased paragraphs you want.">
+            <label for="amount">Number of paraphrased paragraphs:</label><br>
+            <input type="number" id="amount" name="amount" min="1" max="100" value="1"><br><br>
+        </div>
+
+        <button type="button" onclick="toggleDrawer()">Advanced Options</button>
+        <div id="drawer" style="display:none;"><br>
+            <div title="Enter a seed value for the randomizer to ensure reproducible results. 0 for default value (random seed).">
+                <label for="seed">Randomizer seed:</label><br>
+                <input type="number" id="seed" name="seed" value="0"><br>
+            </div>
+
+            <div title="Enter the maximum length for the paraphrased output. 0 for default value (input length * 2)">
+                <label for="max_length">Maximum length of the output:</label><br>
+                <input type="number" id="max_length" name="max_length" value="0"><br>
+            </div>
+
+            <div title="Enter the number of highest probability vocabulary tokens to keep for top-k filtering. 0 for default value (50)">
+                <label for="top_k">Top K:</label><br>
+                <input type="number" id="top_k" name="top_k" value="0"><br>
+            </div>
+
+            <div title="Enter the cumulative probability for top-p (nucleus) sampling. 0 for default value (0.95)">
+                <label for="top_p">Top P:</label><br>
+                <input type="range" id="top_p" name="top_p" step="0.01" min="0" max="1" value="0" oninput="document.getElementById('top_p_value').innerText = this.value"><br>
+                <span id="top_p_value">0</span><br><br>
+            </div>
+        </div>
+
+        <input type="submit" value="Paraphrase">
+    </form>
+
+</body>
+<script>
+    function toggleDrawer() {
+        var drawer = document.getElementById('drawer');
+        if (drawer.style.display === 'none') {
+            drawer.style.display = 'block';
+        } else {
+            drawer.style.display = 'none';
+        }
+    }
+</script>
+</html>

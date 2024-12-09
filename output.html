@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RePhrase</title>
+</head>
+<body>
+    <h1>RePhrase</h1>
+    <button onclick="window.location.href='/'">Back</button>
+    <h2>Original Paragraph</h2>
+    <p>{{ sentence }}</p>
+    <h2>Paraphrased Paragraphs</h2>
+    <ul>
+        % for i, (sentence, rank) in enumerate(rephrased, 1):
+            <li>{{ i }}. {{ sentence }} (Similarity: {{ "%.2f" % rank }})</li>
+        % end
+    </ul>
+</body>
+<script>
+</script>
+</html>
